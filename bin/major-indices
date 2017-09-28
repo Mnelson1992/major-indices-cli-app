@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require './lib/major_indices'
+
+MajorIndices::CLI.new.call #Encapsulation, allowing us to code everything in the file that we created
