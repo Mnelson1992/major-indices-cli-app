@@ -1,5 +1,5 @@
-require "major_indices/version"
+require_relative "./major_indices/version"
+require_relative "./major_indices/cli"
 
-module MajorIndices
-  # Your code goes here...
-end
+
+#require "./major_indices/indices" This will set the requirements for requiring main lib file
