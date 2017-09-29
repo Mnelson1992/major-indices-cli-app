@@ -1,20 +1,26 @@
 class MajorIndices::Index
-  attr_accessor :name, :price
+  attr_accessor :name, :location, :about
 
-  def self.scraped_quotes
-    self.save_scraped
+  @@all
+
+  def initialize(name, location, about)
+    @name = name
+    @location = location
+    @aboout = about
+    @@all << self
   end
 
-  def self.save_scraped
-    quotes = []
-    quotes << self.scraped_info
+  def self.all
+    @@all
   end
 
-  def self.scraped_info
-    doc = Nokogiri::HTML(open("http://www.marketwatch.com/tools/marketsummary/indices/indices.asp?indexid=1&groupid=37"))
-    index=self.new
-    index.name = doc.css(".company-col").text
-    index.price = doc.css("aright last col").text
-    index
-  end
+  def self.scape_bars
+    doc = nokogiri::HTML(open("https://www.thrillist.com/drink/new-york/rooftop-bar-nyc"))
+
+    doc.css(".save-venue saveable-venue has spacing is standard").each do |bar|
+      doc.name = bar.css("h1").text #a .save-venu_link
+      doc.location = bar.css("h2").text
+      doc.about = bar.css("p").text
+    end
+  end 
 end
