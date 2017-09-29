@@ -49,7 +49,7 @@ class MajorIndices::CLI
   def display_info
     quote = MajorIndices::Index.scraped_quotes
       quote.each do |stock|
-      puts "#{stock.name} - #{stock.value} - #{stock.percent}"
+      puts "#{stock.name} - #{stock.price}"
     end
   end
 
@@ -63,14 +63,14 @@ class MajorIndices::CLI
   def current_value
     quote = MajorIndices::Index.scraped_quotes
     quote.each do |stock|
-    puts "#{stock.name} - #{stock.value}"
+    puts "#{stock.price}"
   end
   end
 
   def percent
     quote = MajorIndices::Index.scraped_quotes
     quote.each do |stock|
-    puts "#{stock.name} - #{stock.percent}"
+    puts "#{stock.name}"
   end
   end
 

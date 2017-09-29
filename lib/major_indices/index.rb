@@ -1,5 +1,5 @@
 class MajorIndices::Index
-  attr_accessor :name, :value, :percent
+  attr_accessor :name, :price
 
   def self.scraped_quotes
     self.save_scraped
@@ -11,15 +11,10 @@ class MajorIndices::Index
   end
 
   def self.scraped_info
-
-
-    #binding.pry
-
-
+    doc = Nokogiri::HTML(open("http://www.marketwatch.com/tools/marketsummary/indices/indices.asp?indexid=1&groupid=37"))
     index=self.new
-    index.name = "Nasdaq"
-    index.value = "200000"
-    index.percent = "13%"
+    index.name = doc.css(".company-col").text
+    index.price = doc.css("aright last col").text
     index
   end
 end
