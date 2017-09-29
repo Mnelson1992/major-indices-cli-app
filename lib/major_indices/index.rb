@@ -11,12 +11,15 @@ class MajorIndices::Index
   end
 
   def self.scraped_info
+
+
+    #binding.pry
+
+
     index=self.new
     index.name = "Nasdaq"
     index.value = "200000"
     index.percent = "13%"
     index
   end
-
-
 end

@@ -1,6 +1,5 @@
 class MajorIndices::CLI
 
-# 1. code ClI with fake data to make sure that it works
   def call
     greeting
     menu
@@ -48,22 +47,31 @@ class MajorIndices::CLI
     end
 
   def display_info
-    quote = MajorIndices::Index.all
+    quote = MajorIndices::Index.scraped_quotes
       quote.each do |stock|
       puts "#{stock.name} - #{stock.value} - #{stock.percent}"
     end
   end
 
   def display_indices
-    puts "i. index" #sorted alphabetically
+    quote = MajorIndices::Index.scraped_quotes
+    quote.each do |stock|
+    puts "#{stock.name}"
+  end
   end
 
   def current_value
-    puts "index - value" #sorted alphabetically
+    quote = MajorIndices::Index.scraped_quotes
+    quote.each do |stock|
+    puts "#{stock.name} - #{stock.value}"
+  end
   end
 
   def percent
-    puts "index - percent" #sorted alphabetically
+    quote = MajorIndices::Index.scraped_quotes
+    quote.each do |stock|
+    puts "#{stock.name} - #{stock.percent}"
+  end
   end
 
 end
