@@ -48,7 +48,10 @@ class MajorIndices::CLI
     end
 
   def display_info
-    puts "index - value - percent"
+    quote = MajorIndices::Index.all
+      quote.each do |stock|
+      puts "#{stock.name} - #{stock.value} - #{stock.percent}"
+    end
   end
 
   def display_indices
