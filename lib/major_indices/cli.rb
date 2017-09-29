@@ -14,7 +14,6 @@ class MajorIndices::CLI
     puts "    To display the indices, their current values and percent change, type 1"
     puts "    To display list of just the indices, type 2"
     puts "    To display list of the indices and their current values, type 3"
-    puts "    To display the indices and their percent change, type 4"
     puts "    To exit, type 'exit'"
     input = gets.strip
 
@@ -26,9 +25,6 @@ class MajorIndices::CLI
         option
       elsif input == '3'
         current_value
-        option
-      elsif input == '4'
-        percent
         option
       else
         puts "That is an invalid entry, please try again"
@@ -64,13 +60,6 @@ class MajorIndices::CLI
     quote = MajorIndices::Index.scraped_quotes
     quote.each do |stock|
     puts "#{stock.value}"
-  end
-  end
-
-  def percent
-    quote = MajorIndices::Index.scraped_quotes
-    quote.each do |stock|
-    puts "#{stock.name}"
   end
   end
 

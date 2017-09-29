@@ -11,10 +11,16 @@ class MajorIndices::Index
   end
 
   def self.scraped_info
-    index=self.new
-      index.name = "Nasdaq"
-      index.value = "200000"
-      index.percent = "13%"
-      index
+    doc = Nokogiri::HTML(open("http://www.nasdaq.com/markets/indices/major-indices.aspx"))
+    index = self.new
+    index.name = doc.css(".indexname").text
+    index
+    #binding.pry
+
+    #index=self.new
+    #  index.name = "Nasdaq"
+    #  index.value = "200000"
+    #  index.percent = "13%"
+    #  index
   end
-end 
+end
