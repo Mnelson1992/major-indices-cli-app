@@ -13,7 +13,7 @@ class MajorIndices::Index
   def self.scraped_info
     doc = Nokogiri::HTML(open("http://www.nasdaq.com/markets/indices/major-indices.aspx"))
     index = self.new
-    index.name = doc.css(".indexname").text
+    index.name = doc.css(".indexname").text.strip.gsub("\r\n","")
     index
     #binding.pry
 
