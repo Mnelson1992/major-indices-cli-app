@@ -1,4 +1,4 @@
-class MajorIndices::Cruise
+class MajorIndices::Country
   attr_accessor :name, :description
 
   @@all =[]
@@ -9,8 +9,8 @@ class MajorIndices::Cruise
     @@all << self
   end
 
-  def all
+  def self.all
     @@all
-  end 
+  end
 
 end

@@ -2,6 +2,7 @@ class MajorIndices::CLI
 
   def call
     greeting
+    MajorIndices::Scraper.scraped_info
     list_cruises
     menu
     goodbye
@@ -14,16 +15,17 @@ class MajorIndices::CLI
     puts ""
   end
 
-  def list_cruises
+  def list_countries
     puts "Here is a list of cruises all around the world:"
-    puts "cruise list"
+    MajorIndices::Country.all.each do |trips|
+			puts "#{trips.name}"
+    end
   end
 
   def menu
-    while input != 'exit'
+
     puts "To view a description of a location please enter the location number:"
-    input = gets.strip
-    if 
+
   end
 
   def goodbye
