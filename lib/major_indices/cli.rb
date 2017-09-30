@@ -15,15 +15,19 @@ class MajorIndices::CLI
   end
 
   def list_cruises
-    puts "cruises" #fill in list_cruises method
+    puts "Here is a list of cruises all around the world:"
+    puts "cruise list"
   end
 
   def menu
-    puts "menu" #fill in menu method
+    while input != 'exit'
+    puts "To view a description of a location please enter the location number:"
+    input = gets.strip
+    if 
   end
 
   def goodbye
-    puts "goodbye" #fill in goodbye method
+    puts "See ya later!"
   end
 
 end
