@@ -10,7 +10,7 @@ class MajorIndices::CLI
 
   def greeting
     puts "Having a tough time deciding where to go on vacation?"
-    puts "Well let us help guide you thinking with this fancy new gem"
+    puts "Well let us help guide your thinking with this fancy new gem"
     puts ""
   end
 
@@ -34,7 +34,7 @@ class MajorIndices::CLI
 
     if input == 'list'
       list_countries
-    elsif input.to_i > 0 && input.to_i < 11
+    elsif input.to_i > 0
       location  = input.to_i-1
       puts MajorIndices::Country.all[location].description
     else
