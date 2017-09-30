@@ -1,0 +1,4 @@
+class MajorIndices::Cruise
+
+  
+end
